@@ -13,49 +13,66 @@ public class Bookstore {
             if (action == 0)
                 break;
 
-        }
-        switch (action) {
 
-            case 1:
-                System.out.println(books.length);
+            switch (action) {
+
+                case 1:
+                    for (String i : books) {
+                        System.out.println(i);
+                    }
+
+                    break;
 
 
 // add book
-            case 2:
-                System.out.println("Choose which book to buy");
-                System.out.println(books.length);
-                System.out.println("Press 4 for Science, 5 for Math, 6 for Technology, and 7 for Space ");
-            case 4:
-                System.out.println("Your purchase was successful. You have purchased Science.");
-            case 5:
-                System.out.println("Your purchase was successful. You have purchased Math.");
-            case 6:
-                System.out.println("Your purchase was successful. You have purchased Technology.");
-            case 7:
-                System.out.println("Your purchase was successful. You have purchased Space.");
+                case 2:
+                    System.out.println("Choose which book to buy");
+                    for (String i : books) {
+                        System.out.println(i);
+                    }
+                    System.out.println("Press 4 for Science, 5 for Math, 6 for Technology, and 7 for Space ");
+                    break;
+                case 4:
+                    System.out.println("Your purchase was successful. You have purchased Science.");
+                    break;
+                case 5:
+                    System.out.println("Your purchase was successful. You have purchased Math.");
+                    break;
+                case 6:
+                    System.out.println("Your purchase was successful. You have purchased Technology.");
+                    break;
+                case 7:
+                    System.out.println("Your purchase was successful. You have purchased Space.");
 
-                break;
+                    break;
 // sell book
 
-            // balance inquiry
-            case 3:
-                System.out.println("Choose which book to return.");
-                System.out.println(books.length);
-                System.out.println("Press 8 for Science, 9 for Math, 10 for Technology, and 11 for Space ");
-            case 8:
-                System.out.println("You have successfully sold Science.");
-            case 9:
-                System.out.println("You have successfully sold Math.");
-            case 10:
-                System.out.println("You have successfully sold Technology.");
-            case 11:
-                System.out.println("You have successfully sold Space.");
-                break;
 
+                case 3:
+                    System.out.println("Choose which book to return.");
+                    for (String i : books) {
+                        System.out.println(i);
+                    }
+                    System.out.println("Press 8 for Science, 9 for Math, 10 for Technology, and 11 for Space ");
+                    break;
+                case 8:
+                    System.out.println("You have successfully sold Science.");
+                    break;
+                case 9:
+                    System.out.println("You have successfully sold Math.");
+                    break;
+                case 10:
+                    System.out.println("You have successfully sold Technology.");
+                    break;
+                case 11:
+                    System.out.println("You have successfully sold Space.");
+                    break;
+
+            }
         }
 
 
     }
-    }
+}
 
 
