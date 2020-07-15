@@ -4,9 +4,10 @@ public class Bookstore {
     public static void main(String[] args) {
         Bookstore bookstore = new Bookstore();
         String[] books = {"Science", "Math", "Technology", "Space"};
+        System.out.println("Choose your action, 1 - Check list of books, 2 - Take a book, 3 - Return a book, 0 - Exit");
         while (true) {
             java.util.Scanner sc = new Scanner(System.in);
-            System.out.println("Choose your action, 1 - Check list of books, 2 - Take a book, 3 - Return a book, 0 - Exit");
+
             // based on user
 
             int action = sc.nextInt();
