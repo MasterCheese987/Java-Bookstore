@@ -1,14 +1,14 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Bookstore {
     public static void main(String[] args) {
         Bookstore bookstore = new Bookstore();
-        ArrayList<String> books = new ArrayList<String>();
-        books.add("Science");
-        books.add("Math");
-        books.add("Technology");
-        books.add("Space");
+        HashMap<String, Integer> books = new HashMap<String, Integer>();
+        books.put("Science", 58);
+        books.put("Math", 47);
+        books.put("Technology", 48);
+        books.put("Space", 57);
         System.out.println("Choose your action, 1 - Check list of books, 2 - Take a book, 3 - Return a book(Must buy before adding), 0 - Exit");
         while (true) {
             java.util.Scanner sc = new Scanner(System.in);
@@ -23,8 +23,8 @@ public class Bookstore {
             switch (action) {
 
                 case 1:
-                    for (String i : books) {
-                        System.out.println(i);
+                    for (String i : books.keySet()) {
+                        System.out.println("Book: " + i + " Quantity: " + books.get(i));
                     }
 
                     break;
@@ -33,25 +33,25 @@ public class Bookstore {
 // add book
                 case 2:
                     System.out.println("Choose which book to buy");
-                    for (String i : books) {
-                        System.out.println(i);
+                    for (String i : books.keySet()) {
+                        System.out.println("Book: " + i + " Quantity: " + books.get(i));
                     }
                     System.out.println("Press 4 for Science, 5 for Math, 6 for Technology, and 7 for Space ");
                     break;
                 case 4:
-                    books.remove(0);
+                    books = sellBooks("Science", books);
                     System.out.println("Your purchase was successful. You have purchased Science.");
                     break;
                 case 5:
-                    books.remove(1);
+                    books = sellBooks("Math", books);
                     System.out.println("Your purchase was successful. You have purchased Math.");
                     break;
                 case 6:
-                    books.remove(2);
+                    books = sellBooks("Technology", books);
                     System.out.println("Your purchase was successful. You have purchased Technology.");
                     break;
                 case 7:
-                    books.remove(3);
+                    books = sellBooks("Space", books);
                     System.out.println("Your purchase was successful. You have purchased Space.");
 
                     break;
@@ -60,25 +60,25 @@ public class Bookstore {
 
                 case 3:
                     System.out.println("Choose which book to return.");
-                    for (String i : books) {
-                        System.out.println(i);
+                    for (String i : books.keySet()) {
+                        System.out.println("Book: " + i + " Quantity: " + books.get(i));
                     }
                     System.out.println("Press 8 for Science, 9 for Math, 10 for Technology, and 11 for Space ");
                     break;
                 case 8:
-                    books.add("Science");
+                    books.put("Science", 1);
                     System.out.println("You have successfully sold Science.");
                     break;
                 case 9:
-                    books.add("Math");
+                    books.put("Math", 1);
                     System.out.println("You have successfully sold Math.");
                     break;
                 case 10:
-                    books.add("Technology");
+                    books.put("Technology", 1);
                     System.out.println("You have successfully sold Technology.");
                     break;
                 case 11:
-                    books.add("Space");
+                    books.put("Space", 1);
                     System.out.println("You have successfully sold Space.");
                     break;
 
@@ -86,6 +86,23 @@ public class Bookstore {
         }
 
 
+    }
+    public static HashMap sellBooks(String bookType, HashMap books)
+    {
+        int nummBooks = (Integer) books.get(bookType);
+
+
+        books.put(bookType,--nummBooks);
+
+        return books;
+    }
+    public static HashMap returnBooks(String bookType, HashMap books)
+    {
+        int nummBooks = (Integer) books.get(bookType);
+
+        books.put(bookType,++nummBooks);
+
+        return books;
     }
 }
 
