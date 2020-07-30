@@ -94,6 +94,9 @@ public class Bookstore {
 
         books.put(bookType,--nummBooks);
 
+        if(nummBooks <= 0) {
+            System.out.println("Maximum books purchased";
+        }
         return books;
     }
     public static HashMap returnBooks(String bookType, HashMap books)
@@ -102,7 +105,11 @@ public class Bookstore {
 
         books.put(bookType,++nummBooks);
 
+        if(nummBooks <= 0) {
+            System.out.println("Maximum books purchased";
+        }
         return books;
+
     }
 }
 
