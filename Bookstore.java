@@ -66,19 +66,19 @@ public class Bookstore {
                     System.out.println("Press 8 for Science, 9 for Math, 10 for Technology, and 11 for Space ");
                     break;
                 case 8:
-                    books.put("Science", 1);
+                    returnBooks("Space", books);
                     System.out.println("You have successfully sold Science.");
                     break;
                 case 9:
-                    books.put("Math", 1);
+                    returnBooks("Space", books);
                     System.out.println("You have successfully sold Math.");
                     break;
                 case 10:
-                    books.put("Technology", 1);
+                    returnBooks("Space", books);
                     System.out.println("You have successfully sold Technology.");
                     break;
                 case 11:
-                    books.put("Space", 1);
+                    returnBooks("Space", books);
                     System.out.println("You have successfully sold Space.");
                     break;
 
@@ -94,9 +94,6 @@ public class Bookstore {
 
         books.put(bookType,--nummBooks);
 
-        if(nummBooks <= 0) {
-            System.out.println("Maximum books purchased";
-        }
         return books;
     }
     public static HashMap returnBooks(String bookType, HashMap books)
@@ -105,9 +102,7 @@ public class Bookstore {
 
         books.put(bookType,++nummBooks);
 
-        if(nummBooks <= 0) {
-            System.out.println("Maximum books purchased";
-        }
+
         return books;
 
     }
