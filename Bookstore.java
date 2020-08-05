@@ -9,7 +9,7 @@ public class Bookstore {
         books.put("Math", 47);
         books.put("Technology", 48);
         books.put("Space", 57);
-        System.out.println("Choose your action, 1 - Check list of books, 2 - Take a book, 3 - Return a book(Must buy before adding), 0 - Exit");
+        System.out.println("Choose your action, 1 - Check list of books, 2 - Take a book, 3 - Return a book(Must buy before adding), 4 - New book 0 - Exit");
         while (true) {
             java.util.Scanner sc = new Scanner(System.in);
 
@@ -24,21 +24,32 @@ public class Bookstore {
 
                 case 1:
                     for (String i : books.keySet()) {
-                        System.out.println("Book: " + i + " Quantity: " + books.get(i));
+                        System.out.println("Book: " + i + "     Quantity: " + books.get(i));
                     }
 
                     break;
 
 
+                case 4:
+                    System.out.println("Type 13 and then enter the name of the book and quantity(Press enter each time after typing name and number)");
+                    break;
+                case 13:
+                    java.util.Scanner newBook = new Scanner(System.in);
+                    String name = newBook.nextLine();
+                    java.util.Scanner bookQuantity = new Scanner(System.in);
+                    int number = bookQuantity.nextInt();
+                    books.put(name, number);
+                    System.out.println("Your book is now in the store. Please press 1 to confirm");
+                    break;
 // add book
                 case 2:
                     System.out.println("Choose which book to buy");
                     for (String i : books.keySet()) {
-                        System.out.println("Book: " + i + " Quantity: " + books.get(i));
+                        System.out.println("Book: " + i + "     Quantity: " + books.get(i));
                     }
-                    System.out.println("Press 4 for Science, 5 for Math, 6 for Technology, and 7 for Space ");
+                    System.out.println("Press 12 for Science, 5 for Math, 6 for Technology, and 7 for Space ");
                     break;
-                case 4:
+                case 12:
                     books = sellBooks("Science", books);
                     System.out.println("Your purchase was successful. You have purchased Science.");
                     break;
@@ -61,7 +72,7 @@ public class Bookstore {
                 case 3:
                     System.out.println("Choose which book to return.");
                     for (String i : books.keySet()) {
-                        System.out.println("Book: " + i + " Quantity: " + books.get(i));
+                        System.out.println("Book: " + i + "     Quantity: " + books.get(i));
                     }
                     System.out.println("Press 8 for Science, 9 for Math, 10 for Technology, and 11 for Space ");
                     break;
@@ -87,20 +98,20 @@ public class Bookstore {
 
 
     }
-    public static HashMap sellBooks(String bookType, HashMap books)
-    {
+
+    public static HashMap sellBooks(String bookType, HashMap books) {
         int nummBooks = (Integer) books.get(bookType);
 
 
-        books.put(bookType,--nummBooks);
+        books.put(bookType, --nummBooks);
 
         return books;
     }
-    public static HashMap returnBooks(String bookType, HashMap books)
-    {
+
+    public static HashMap returnBooks(String bookType, HashMap books) {
         int nummBooks = (Integer) books.get(bookType);
 
-        books.put(bookType,++nummBooks);
+        books.put(bookType, ++nummBooks);
 
 
         return books;
