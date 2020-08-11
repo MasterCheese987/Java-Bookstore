@@ -9,7 +9,10 @@ public class Bookstore {
         books.put("Math", 47);
         books.put("Technology", 48);
         books.put("Space", 57);
-        System.out.println("Choose your action, 1 - Check list of books, 2 - Take a book, 3 - Return a book(Must buy before adding), 4 - New book 0 - Exit");
+        HashMap<String, Integer> booksAdded = new HashMap<>();
+        System.out.println("Choose your action, 1 - Check list of books, 2 - Take a book, 3 - Return a book(Must buy before adding), 4 - New book, 0 - Exit");
+        String name=null;
+
         while (true) {
             java.util.Scanner sc = new Scanner(System.in);
 
@@ -19,14 +22,17 @@ public class Bookstore {
             if (action == 0)
                 break;
 
-
             switch (action) {
+
 
                 case 1:
                     for (String i : books.keySet()) {
                         System.out.println("Book: " + i + "     Quantity: " + books.get(i));
                     }
 
+                    for (String i : booksAdded.keySet()) {
+                        System.out.println("Book added: " + i + "     Quantity: " + booksAdded.get(i));
+                    }
                     break;
 
 
@@ -35,11 +41,11 @@ public class Bookstore {
                     break;
                 case 13:
                     java.util.Scanner newBook = new Scanner(System.in);
-                    String name = newBook.nextLine();
+                    name = newBook.nextLine();
                     java.util.Scanner bookQuantity = new Scanner(System.in);
                     int number = bookQuantity.nextInt();
-                    books.put(name, number);
-                    System.out.println("Your book is now in the store. Please press 1 to confirm");
+                    booksAdded.put(name, number);
+                    System.out.println("Your book is now in the store. Please press 1 to confirm, 14 to change quantity");
                     break;
 // add book
                 case 2:
@@ -65,6 +71,15 @@ public class Bookstore {
                     books = sellBooks("Space", books);
                     System.out.println("Your purchase was successful. You have purchased Space.");
 
+                    break;
+                case 14:
+                    if(books.get(name) != null){
+                        int qty = (Integer)booksAdded.get(name)+(Integer)books.get(name);
+                        books.put(name,qty);
+                        System.out.println("Updated quantity:" + qty);
+                    }
+                    else
+                        books.put(name,booksAdded.get(name));
                     break;
 // sell book
 
@@ -117,6 +132,8 @@ public class Bookstore {
         return books;
 
     }
+
+
 }
 
 
