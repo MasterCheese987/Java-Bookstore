@@ -19,6 +19,7 @@ public class Bookstore {
             if (action == 0)
                 break;
 
+
             switch (action) {
 
 
@@ -47,19 +48,29 @@ public class Bookstore {
 // add book
 
                 case 14:
+                    int qty = 0;
                     if(books.get(name) != null){
-                        int qty = (Integer)booksAdded.get(name)+(Integer)books.get(name);
+                        qty = (Integer)booksAdded.get(name)+(Integer)books.get(name);
                         books.put(name,qty);
                         System.out.println("Updated quantity:" + qty);
+
                     }
-                    else
-                        books.put(name,booksAdded.get(name));
+                    else {
+                        qty = booksAdded.get(name);
+                        books.put(name, booksAdded.get(name));
+                    }
+                    if (qty < 0)
+                    {
+                        System.out.println("Error, not enough books in store. Please enter book again.");
+                        break;
+                    }
                     break;
 // sell book
 
 
 
             }
+
         }
 
 
