@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Bookstore {
     public static void main(String[] args) {
-        Bookstore bookstore = new Bookstore();
         HashMap<String, Integer> books = new HashMap<String, Integer>();
 
         HashMap<String, Integer> booksAdded = new HashMap<>();
@@ -61,8 +60,7 @@ public class Bookstore {
                     }
                     if (qty < 0)
                     {
-                        System.out.println("Error, not enough books in store. Please enter book again.");
-                        break;
+                        throw new ArithmeticException("Error, not enough books in store. Please enter book again.");
                     }
                     break;
 // sell book
